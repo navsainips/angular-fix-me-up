@@ -1,0 +1,15 @@
+<h1>Account Details</h1>
+<table class="styled-table">
+  <thead >
+    <tr>
+    <th scope="col">Account Name</th>
+    <th scope="col">Balance</th>
+    <th scope="col"> Account Type </th>
+    </tr>
+  </thead>
+  <tr *ngFor="let account of account" class="active-row">
+    <td>{{account.id}}</td>
+    <td>{{account.balance}}</td>
+    <td>{{account.currency}}</td>
+  </tr>
+</table>
