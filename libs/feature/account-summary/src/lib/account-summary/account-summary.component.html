@@ -1,0 +1,47 @@
+<h1>Account Summary</h1>
+<!-- TODO: 6. Angular ngFor, refactor, and bonus points -->
+<!-- TODO: 7. Accessibility, table markup, form control (completed with reactive form for select)-->
+<div class="account-summary">
+  <section>
+    <table class="styled-table">
+      <thead>
+      <tr>
+        <th scope="col">Account Name</th>
+        <th scope="col">Balance</th>
+        <th scope="col">
+          <label>Account Type</label>
+          <form [formGroup]="currencyForm">
+            <div class="group-gap">
+              <div class="d-block my-3">
+                <div class="mb-3">
+                  <select
+                    class="custom-select"
+                    (change)="changeCurrency($event)"
+                    formControlName="currencyName"
+                  >
+                    <option
+                      *ngFor="let currency of currency"
+                      [ngValue]="currency"
+                    >
+                      {{ currency }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- Form ends -->
+        </th>
+      </tr>
+    </thead>
+      <tr *ngFor="let account of filteredAcoounts; trackBy: trackByMethod">
+        <!-- TODO: 8. route to detail view (Completed)-->
+        <th>
+          <a (click)="getAccount(account.id)">{{ account.id }}</a>
+        </th>
+        <td>{{ account.balance }}</td>
+        <td>{{ account.currency }}</td>
+      </tr>
+    </table>
+  </section>
+</div>
